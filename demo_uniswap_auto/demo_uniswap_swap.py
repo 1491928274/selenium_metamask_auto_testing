@@ -1,7 +1,7 @@
 import selenium_metamask_automation as auto
 import time
 import wallet
-
+from selenium.webdriver.common.by import By
 
 # 指定chromedriver路径
 driverPath = '/Users/luoye/Downloads/tools/chromedriver'
@@ -22,23 +22,23 @@ networkName = 'Kovan 测试网络'
 auto.changeMetamaskNetwork(networkName)
 driver.switch_to.window(driver.window_handles[0])
 time.sleep(5)
-driver.find_element_by_xpath('//*[@id="connect-wallet"]').click()
-driver.find_element_by_xpath('//*[@id="connect-METAMASK"]').click()
+driver.find_element(By.XPATH, '//*[@id="connect-wallet"]').click()
+driver.find_element(By.XPATH, '//*[@id="connect-METAMASK"]').click()
 # 连接钱包
 auto.connectToWebsite()
 time.sleep(5)
-driver.find_element_by_xpath('//span[text()="选择代币"]').click()
+driver.find_element(By.XPATH, '//span[text()="选择代币"]').click()
 time.sleep(3)
-driver.find_element_by_xpath('//div[text()="DAI"]').click()
+driver.find_element(By.XPATH, '//div[text()="DAI"]').click()
 time.sleep(5)
-inputs = driver.find_elements_by_xpath('//input')
+inputs = driver.find_elements(By.XPATH, '//input')
 inputs[0].send_keys('0.001')
 time.sleep(8)
-driver.find_element_by_xpath('//*[@id="swap-button"]').click()
+driver.find_element(By.XPATH, '//*[@id="swap-button"]').click()
 time.sleep(2)
-driver.find_element_by_xpath('//*[@id="confirm-swap-or-send"]').click()
+driver.find_element(By.XPATH, '//*[@id="confirm-swap-or-send"]').click()
 time.sleep(10)
 # 确认交易
 auto.confirmApprovalFromMetamask()
 time.sleep(2)
-driver.find_element_by_xpath('//div[text()="关闭"]').click()
+driver.find_element(By.XPATH, '//div[text()="关闭"]').click()
