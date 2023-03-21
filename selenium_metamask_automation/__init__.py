@@ -45,7 +45,6 @@ def metamaskSetup(recoveryPhrase, password):
     from selenium.webdriver.common.by import By
 
     driver.find_element(By.XPATH, '//button[text()="开始使用"]').click()
-    driver.find_element(By.XPATH, '//button[text()="开始使用"]').click()
     driver.find_element(By.XPATH, '//button[text()="导入钱包"]').click()
     driver.find_element(By.XPATH, '//button[text()="我同意"]').click()
 
